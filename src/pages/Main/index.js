@@ -11,6 +11,7 @@ import {
   ToolsList,
   TagList,
   SubContainer,
+  Modal,
 } from './styles';
 
 export default class Main extends Component {
@@ -22,6 +23,7 @@ export default class Main extends Component {
       loading: false,
       err: null,
       checktag: false,
+      addModal: false,
     };
   }
 
@@ -100,7 +102,7 @@ export default class Main extends Component {
               </label>
             </Inputs>
           </Form>
-          <AddButton>+ Add</AddButton>
+          <AddButton onClick={() => this.setState({addModal: true})}>+ Add</AddButton>
         </SubContainer>
         <ToolsList>
           {tools.map(tool => (
@@ -120,7 +122,10 @@ export default class Main extends Component {
             </li>
           ))}
         </ToolsList>
+        {this.state.showModal && <Modal open>ModalModalModal</Modal>}
+
       </Container>
+
     );
   }
 }

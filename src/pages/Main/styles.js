@@ -18,6 +18,12 @@ export const AddButton = styled.button.attrs({
   type: 'text',
 })``;
 
+export const Modal = styled.div`
+
+  z-index: 300;
+  background: green;
+`;
+
 export const Inputs = styled.div`
   display: flex;
 
