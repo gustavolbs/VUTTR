@@ -3,16 +3,9 @@ import React, { Component } from 'react';
 import api from '../../services/api';
 
 import { Container } from '../../components/Container';
-import {
-  Header,
-  Form,
-  AddButton,
-  Inputs,
-  ToolsList,
-  TagList,
-  SubContainer,
-  Modal,
-} from './styles';
+import Header from '../../components/Header';
+import HeaderInput from '../../components/HeaderInput';
+import ToolsList from '../../components/ToolsList';
 
 export default class Main extends Component {
   constructor() {
@@ -23,7 +16,6 @@ export default class Main extends Component {
       loading: false,
       err: null,
       checktag: false,
-      addModal: false,
     };
   }
 
@@ -33,10 +25,6 @@ export default class Main extends Component {
     if (tools) {
       this.setState({ tools: tools.data });
     }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const { tools } = this.state;
   }
 
   handleInputChange = e => {
@@ -52,7 +40,7 @@ export default class Main extends Component {
     this.setState({ loading: true, err: false });
 
     try {
-      const { searchTool, tools, checktag } = this.state;
+      const { searchTool, checktag } = this.state;
 
       const response = checktag
         ? await api.get(`/tools?tags_like=${searchTool}`)
@@ -66,66 +54,24 @@ export default class Main extends Component {
         err: true,
       });
     } finally {
-      this.setState({
-        loading: false,
-      });
+      console.log('OK');
     }
   };
 
   render() {
-    const { searchTool, loading, tools, err, checktag } = this.state;
+    const { searchTool, tools, err, checktag } = this.state;
     return (
       <Container>
-        <Header>
-          <h1>VUTTR</h1>
-          <h2>Very Useful Tools to Remember</h2>
-        </Header>
-        <SubContainer>
-          <Form onSubmit={this.handleSubmitSearch} err={err}>
-            <Inputs>
-              <input
-                type="text"
-                name="searchTool"
-                placeholder="search"
-                value={searchTool}
-                onChange={this.handleInputChange}
-              />
-
-              <label>
-                <input
-                  name="checktag"
-                  type="checkbox"
-                  checked={checktag}
-                  onChange={this.handleInputChange}
-                />
-                <span>search in tags only</span>
-              </label>
-            </Inputs>
-          </Form>
-          <AddButton onClick={() => this.setState({addModal: true})}>+ Add</AddButton>
-        </SubContainer>
-        <ToolsList>
-          {tools.map(tool => (
-            <li key={tool.id}>
-              <div>
-                <a href={tool.link} target="_blank">
-                  <span>{tool.title}</span>
-                </a>
-                <button type="submit">x remove</button>
-              </div>
-              <p>{tool.description}</p>
-              <TagList>
-                {tool.tags.map(tag => (
-                  <li key={tag}>#{tag}</li>
-                ))}
-              </TagList>
-            </li>
-          ))}
-        </ToolsList>
-        {this.state.showModal && <Modal open>ModalModalModal</Modal>}
-
+        <Header />
+        <HeaderInput
+          onSubmit={this.handleSubmitSearch}
+          err={err}
+          checked={checktag}
+          onChange={this.handleInputChange}
+          value={searchTool}
+        />
+        <ToolsList tools={tools} />
       </Container>
-
     );
   }
 }
