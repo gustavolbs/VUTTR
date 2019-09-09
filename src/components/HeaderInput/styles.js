@@ -10,11 +10,31 @@ export const Container = styled.div`
   display: flex;
   height: 100%;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const AddButton = styled.button.attrs({
   type: 'text',
-})``;
+})`
+  background-color: #365df0;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    margin-right: 5px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
 
 export const InputContainer = styled.div`
   display: flex;
@@ -28,5 +48,64 @@ export const InputContainer = styled.div`
     span {
       margin-left: 5px;
     }
+  }
+
+  .searchContainer {
+    background: #f5f4f6;
+    border: 1px solid #ebeaed;
+    margin-left: 0px;
+    border-radius: 5px;
+    color: #b1adb9;
+
+    &:hover {
+      background: #ebeaed;
+
+      input {
+        background: #ebeaed;
+      }
+    }
+
+    input:focus {
+      svg {
+        color: #000;
+      }
+    }
+
+    svg {
+      margin-left: 10px;
+    }
+
+    & > input {
+      border: none;
+      background: #f5f4f6;
+      padding: 10px;
+    }
+
+    & > input::placeholder {
+      color: #b1adb9;
+    }
+  }
+
+  .checkContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkContainer span.checkmark {
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 5px;
+  }
+
+  .checkContainer:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  .checkContainer input:checked ~ .checkmark {
+    background-color: #365df0;
   }
 `;

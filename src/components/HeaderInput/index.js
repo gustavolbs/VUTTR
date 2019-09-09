@@ -25,7 +25,7 @@ export default function HeaderInput({
 function Inputs({ value, onChange, checked }) {
   return (
     <InputContainer>
-      <label>
+      <label className="searchContainer">
         <FaSearch />
         <input
           type="text"
@@ -36,13 +36,14 @@ function Inputs({ value, onChange, checked }) {
         />
       </label>
 
-      <label>
+      <label className="checkContainer">
         <input
           name="checktag"
           type="checkbox"
           checked={checked}
           onChange={onChange}
         />
+        <span className="checkmark" />
         <span>search in tags only</span>
       </label>
     </InputContainer>

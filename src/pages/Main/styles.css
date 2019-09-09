@@ -1,0 +1,98 @@
+.modal {
+  background: rgba(76, 68, 153, 0.7);
+  border: 5px;
+}
+
+.modal h2 {
+  display: flex;
+}
+
+.modal h2 svg {
+  margin-right: 10px;
+}
+
+.modal > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.modal label input {
+  margin-top: 10px;
+  background: #f5f4f6;
+  border: 1px solid #ebeaed;
+  border-radius: 5px;
+  padding: 10px 30px;
+}
+
+.modal label input::placeholder {
+  color: #b1adb9;
+}
+
+.modal div#buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal div#buttonContainer button {
+  background: #888;
+  margin-top: 20px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+}
+
+.modal div#buttonContainer button:hover {
+  opacity: 0.7;
+}
+
+.modal div#buttonContainer button#addButton {
+  background: #365df0;
+  margin-left: 30px;
+}
+
+.modalRemove {
+  background: rgba(76, 68, 153, 0.7);
+}
+
+.modalRemove h2 {
+  display: flex;
+}
+
+.modalRemove h2 svg {
+  margin-right: 10px;
+}
+
+.modalRemove div#buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalRemove div#buttonContainer button {
+  background: #888;
+  margin-top: 20px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+}
+
+.modalRemove div#buttonContainer button:hover {
+  opacity: 0.7;
+}
+
+.modalRemove div#buttonContainer button#removeButton {
+  background: #f95e5a;
+  margin-left: 30px;
+}

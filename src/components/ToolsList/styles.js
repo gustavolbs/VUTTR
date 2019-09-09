@@ -8,9 +8,9 @@ export const ToolList = styled.ul`
     padding: 15px 20px;
     display: flex;
     flex-direction: column;
-    border: 0px solid #ddd;
+    border: 1px solid #ebeaed;
     border-radius: 5px;
-    box-shadow: 1px 1px 20px #aaa;
+    box-shadow: 0px 15px 20px #00000012;
 
     div {
       display: flex;
@@ -31,7 +31,7 @@ export const ToolList = styled.ul`
     }
 
     & + li {
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     ul {

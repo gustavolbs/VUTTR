@@ -17,9 +17,10 @@ function getModalStyle() {
 const useStyles = makeStyles(theme => ({
   paper: {
     position: 'absolute',
-    width: 400,
+    width: 600,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
+    borderRadius: 5,
     padding: theme.spacing(2, 4, 3),
   },
 }));
@@ -60,6 +61,7 @@ export default function SimpleModal({ id, tools, title }) {
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
         open={open}
+        className="modalRemove"
         onClose={handleClose}
       >
         <div style={modalStyle} className={classes.paper}>
@@ -69,9 +71,12 @@ export default function SimpleModal({ id, tools, title }) {
           <p>
             Are you sure you want to remove <strong>{title}</strong>?
           </p>
-
-          <button onClick={handleClose}>Cancel</button>
-          <button onClick={handleRemove}>Yes, remove</button>
+          <div id="buttonContainer">
+            <button onClick={handleClose}>Cancel</button>
+            <button onClick={handleRemove} id="removeButton">
+              Yes, remove
+            </button>
+          </div>
         </div>
       </Modal>
     </Container>
