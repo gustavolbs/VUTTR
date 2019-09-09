@@ -1,3 +1,9 @@
+/**
+ * Página inicial da aplicação.
+ *
+ * Main
+ * Componente que contém tudo que é exibido e realizado pelo front da aplicação.
+ */
 import React, { Component } from 'react';
 
 import api from '../../services/api';

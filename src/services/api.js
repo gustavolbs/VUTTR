@@ -1,3 +1,8 @@
+/**
+ * Arquivo de configuração de acesso a API.
+ *
+ * Tecnologia usada: axios
+ */
 import axios from 'axios';
 
 const api = axios.create({

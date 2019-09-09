@@ -1,3 +1,14 @@
+/**
+ * HeaderInput
+ * Componente que representa a agregação dos inputs que estão logo após o Header
+ * e o botão de adição de uma ferramenta.
+ *
+ * Inputs
+ * Componente que representa os inputs de pesquisa.
+ *
+ * Bibliotecas Adicionais
+ *  - React Icons para os ícones
+ */
 import React from 'react';
 
 import { FaSearch } from 'react-icons/fa';

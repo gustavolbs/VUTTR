@@ -1,3 +1,19 @@
+/**
+ * Form
+ * Styled Component que carrega as estilizações do form de inputs.
+ *
+ * Container
+ * Styled Component que carrega a estilização de uma div que contém o form e o
+ * botão de adição.
+ *
+ * AddButton
+ * Styled Component que carrega a estilização do botão de adição de uma nova fer-
+ * ramenta.
+ *
+ * InputContainer
+ * Styled Component que carrega a estilização dos inputs e cria um checkbox dife-
+ * rente do padrão.
+ */
 import styled from 'styled-components';
 
 export const Form = styled.form`

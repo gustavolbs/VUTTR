@@ -1,10 +1,18 @@
+/**
+ * SimpleModal
+ * Componente que representa o modal de remoção de um item.
+ *
+ * Bibliotecas Adicionais
+ *  - Material Ui para o Modal
+ *  - React Icons para os ícones
+ */
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { FaPlus } from 'react-icons/fa';
 import api from '../../services/api';
 
-import { RemoveButton, Container } from './styles';
+import { Container } from './styles';
 
 function getModalStyle() {
   return {
@@ -54,9 +62,9 @@ export default function SimpleModal({ id, tools, title }) {
 
   return (
     <Container>
-      <RemoveButton onClick={handleOpen}>
+      <button type="button" onClick={handleOpen}>
         <FaPlus />
-      </RemoveButton>
+      </button>
       <Modal
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
@@ -72,8 +80,10 @@ export default function SimpleModal({ id, tools, title }) {
             Are you sure you want to remove <strong>{title}</strong>?
           </p>
           <div id="buttonContainer">
-            <button onClick={handleClose}>Cancel</button>
-            <button onClick={handleRemove} id="removeButton">
+            <button onClick={handleClose} type="button">
+              Cancel
+            </button>
+            <button onClick={handleRemove} type="button" id="removeButton">
               Yes, remove
             </button>
           </div>

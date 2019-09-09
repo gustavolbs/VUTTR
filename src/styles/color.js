@@ -1,3 +1,6 @@
+/**
+ * Arquivo de definição das cores definidas na paleta disponibilizada.
+ */
 export default {
   white: '#FFFFFF',
   darkWhite: '#FCFCFD',

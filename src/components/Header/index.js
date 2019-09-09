@@ -1,6 +1,11 @@
+/**
+ * Header
+ * Componente funcional que representa a parte superior da aplicação, onde estão
+ * contidos o Título e subtítulo.
+ */
 import React from 'react';
 
-function Header() {
+export default function Header() {
   return (
     <header>
       <h1>VUTTR</h1>
@@ -8,5 +13,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

@@ -1,3 +1,11 @@
+/**
+ * SimpleModal
+ * Componente que representa o modal de adição de um novo item.
+ *
+ * Bibliotecas Adicionais
+ *  - Material Ui para o Modal
+ *  - React Icons para os ícones
+ */
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -27,7 +35,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function SimpleModal() {
   const classes = useStyles();
-  // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(false);
 
