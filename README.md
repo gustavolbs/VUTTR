@@ -28,7 +28,7 @@ and `npx json-server db.json`
 
 ### Run the application frontend
 
-Download the ![VUTTR Frontend](https://github.com/gustavolbs/VUTTR)
+Download the [VUTTR Frontend](https://github.com/gustavolbs/VUTTR)
 Run `npm install` or `yarn` on folder
 and `npm start` or `yarn start`
 
