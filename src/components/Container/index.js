@@ -1,3 +1,8 @@
+/**
+ * Container
+ * Styled Component que carrega definições padrões para serem utilizadas em
+ * qualquer local da aplicação.
+ */
 import styled from 'styled-components';
 
 export const Container = styled.div`

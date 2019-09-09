@@ -1,3 +1,7 @@
+/**
+ * ToolList
+ * Styled Component que estiliza a lista de ferramentas.
+ */
 import styled from 'styled-components';
 
 export const ToolList = styled.ul`

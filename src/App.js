@@ -1,3 +1,6 @@
+/**
+ * Arquivo que define o que representa a aplicação.
+ */
 import React from 'react';
 
 import Routes from './routes';

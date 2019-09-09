@@ -1,3 +1,7 @@
+/**
+ * Arquivo de estilização dos demais pontos da aplicação, como os modais, por
+ * exemplo.
+ */
 .modal {
   background: rgba(76, 68, 153, 0.7);
   border: 5px;

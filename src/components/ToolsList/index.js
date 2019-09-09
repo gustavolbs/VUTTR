@@ -1,3 +1,15 @@
+/**
+ * ToolsList
+ * Componente que contém todas as ferramentas e gera, dinamicamente, a listagem
+ * delas.
+ *
+ * ToolItem
+ * Componente que representa uma ferramenta e contém uma lista de tags, um botão
+ * de deleção do item e as demais informações referentes ao item.
+ *
+ * TagList
+ * Componente que contém todas as tags e gera, dinamicamentem, a listagem delas.
+ */
 import React from 'react';
 
 import SimpleModal from '../RemoveModal';
