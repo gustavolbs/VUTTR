@@ -7,13 +7,14 @@ import Header from '../../components/Header';
 import HeaderInput from '../../components/HeaderInput';
 import ToolsList from '../../components/ToolsList';
 
+import './styles.css';
+
 export default class Main extends Component {
   constructor() {
     super();
     this.state = {
       searchTool: '',
       tools: [],
-      loading: false,
       err: null,
       checktag: false,
     };
@@ -37,7 +38,7 @@ export default class Main extends Component {
   handleSubmitSearch = async e => {
     e.preventDefault();
 
-    this.setState({ loading: true, err: false });
+    this.setState({ err: false });
 
     try {
       const { searchTool, checktag } = this.state;
