@@ -15,24 +15,34 @@ import React from 'react';
 import SimpleModal from '../RemoveModal';
 import { ToolList } from './styles';
 
-export default function ToolsList({ tools }) {
+export default function ToolsList({ tools, reloadData }) {
   return (
     <ToolList>
       {tools.map(tool => (
-        <ToolItem key={tool.id} all={tools} tool={tool} />
+        <ToolItem
+          key={tool.id}
+          all={tools}
+          tool={tool}
+          reloadData={reloadData}
+        />
       ))}
     </ToolList>
   );
 }
 
-function ToolItem({ tool, all }) {
+function ToolItem({ tool, all, reloadData }) {
   return (
     <li>
       <div>
         <a href={tool.link} target="_blank" rel="noopener noreferrer">
           <span>{tool.title}</span>
         </a>
-        <SimpleModal title={tool.title} tools={all} id={tool.id} />
+        <SimpleModal
+          title={tool.title}
+          tools={all}
+          id={tool.id}
+          reloadData={reloadData}
+        />
       </div>
       <p>{tool.description}</p>
       <TagList tool={tool} />

@@ -1,0 +1,65 @@
+Gustavo Luiz Bispo dos Santos
+Estudante de Ciência da Computação - UFCG
+Estudando e participando no BootCamp Rocketseat
+Trabalho numa escola dando aula de engenharia e robótica para crianças.
+
+Desejo por fazer algo com computadores desde pequeno (jogar, produzir um app, algo assim...)
+Em 2017 entrei na UFCG
+Bootcamp como forma de me profissionalizar no que quero.
+Então decidi, após começar o Bootcamp, tentar uma vaga em alguma empresa na minha área (que gosto).
+
+Sobre mim:
+Gosto de ficar com minha namorada, com minha família, de tocar música, jogar futsal com amigos, e quando
+posso, ensino a um pequeno amigo (11 anos) programação através de JavaScript (ou quando ele vem tirar
+dúvidas).
+
+Gosto de trabalhar em equipe e buscar uma solução que seja agradável a todos e que atenda ao propósito
+da ideia.
+
+Cheguei nessa carreira através de meu irmão (enfermeiro) que recomendou que eu cursasse Ciência da Computação por causa da minha vontade de fazer algo com computadores.
+Na universidade, eu descobri que a área de computação era muito ampla e não era isso que eu queria, então
+conheci a Rocketseat que me levou a conhecer a área que eu queria trabalhar, desenvolvimento de sistemas web. Antes disso, eu já tinha trabalhado com Python, Prolog, PHP, Java, C, C++, Haskell e nenhuma delas me agradou, foi aí que vi o Javascript e me levou a um novo desejo de aprendizado. Hoje tenho interesse em trabalhar exclusivamente com JS e frameworks relativos (nodeJS, ReactJS, React Native, Electron...)
+
+Profissionalmente, desenvolvendo pra uma empresa, nunca trabalhei. Apenas projetos a parte e projetos em cursos. Já trabalhei desenvolvendo, com um amigo, um jogo online em PHP e arduino para 100 pessoas simultâneas, desenvolvi(endo) projetos no Bootcamp, desenvolvi alguns micro-projetos em shell... Mas o que realmente me agradou foi o desenvolvimento web através do JS.
+
+Conheci a BossaBox através do Diego da Rocketseat que recomendou a plataforma em uma das lives do Bootcamp e eu resolvi me candidatar porque eu queria tentar algo na minha área e a BossaBox trabalha justamente nisso, então foi unir o que eu queria com uma plataforma que faz o que gosto e possui vários desenvolvedores nessa área.
+
+Basicamente, minha rotina hoje é estudar e trabalhar, o que está sendo útil para as crianças e para mim, que estou pagando o computador em que hoje desenvolvo e o Bootcamp, que está me levando a outro nível na minha carreira.
+
+Hoje eu trabalho na segunda-feira dando aula na escola pela manhã e pela tarde tenho aula (noite livre).
+Na terça eu estou na universidade durante todo o dia (noite livre).
+Na quarta só tenho aula no fim da tarde (manhã, parte da tarde e noite livres).
+Na quinta só tenho aula no começo da manhã (tarde e noite livres).
+Na sexta o horário é meio quebrado na universidade (pedaço da manhã e da tarde livres, noite reservo para estar com família e namorada).
+No sábado tenho a manhã e trecho da tarde livres.
+No domingo eu estou inteiramente dedicado as atividades exercidas na igreja.
+
+Resumindo em horas, o tempo disponível para trabalho é de 32 horas semanais.
+
+Compartilhamento de tela e código:
+
+**Dificuldade com a adição de ferramentas e remoção sem atualização da página.**
+Demonstrar o funcionamento e o código.
+
+Pontos importantes:
+
+    index.js - Render App in #root
+    routes.js - Rotas da aplicação
+    App.js - App completo a ser renderizado
+    services/api.js - conexão com a API
+    pages/Main/index.js - Conteúdo principal a ser exibido
+    
+
+Decisões a serem tomadas:
+    
+    Como e por onde começar
+    Modal utilizado
+    Quebra de código em Componentes e Styled-Components
+        
+Ferramentas utilizadas e porque:
+    
+    React - por ser uma tecnologia que eu já conheço, ter uma boa performance, comunidade muito grande para tirar dúvidas.
+    Material Modal - fácil de implementar, visual interessante, documentação detalhada e com muitos exemplos.
+    Styled-Components - fácil de implementar, similar a css, muito útil para personalizar filhos de trechos do código, por exemplo.
+    Eslint, Prettier, EditorConfig - Padronização de todo código (foi muito importante quando tive que fazer parte desse desafio nos computadores da universidade).
+

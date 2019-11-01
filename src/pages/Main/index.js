@@ -24,14 +24,12 @@ export default class Main extends Component {
       err: null,
       checktag: false,
     };
+    this.reloadData = this.reloadData.bind(this);
+    this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
   }
 
   async componentDidMount() {
-    const tools = await api.get(`/tools`);
-
-    if (tools) {
-      this.setState({ tools: tools.data });
-    }
+    this.reloadData();
   }
 
   handleInputChange = e => {
@@ -39,11 +37,15 @@ export default class Main extends Component {
       e.target.type === 'checkbox' ? e.target.checked : e.target.value;
 
     this.setState({ [e.target.name]: value, err: null });
+
+    if (this.state.searchTool.length <= 1) {
+      this.reloadData();
+    } else {
+      this.handleSubmitSearch();
+    }
   };
 
   handleSubmitSearch = async e => {
-    e.preventDefault();
-
     this.setState({ err: false });
 
     try {
@@ -60,10 +62,16 @@ export default class Main extends Component {
       this.setState({
         err: true,
       });
-    } finally {
-      console.log('OK');
     }
   };
+
+  async reloadData() {
+    const tools = await api.get(`/tools`);
+
+    if (tools) {
+      this.setState({ tools: tools.data });
+    }
+  }
 
   render() {
     const { searchTool, tools, err, checktag } = this.state;
@@ -76,8 +84,9 @@ export default class Main extends Component {
           checked={checktag}
           onChange={this.handleInputChange}
           value={searchTool}
+          reloadData={this.reloadData}
         />
-        <ToolsList tools={tools} />
+        <ToolsList tools={tools} reloadData={this.reloadData} />
       </Container>
     );
   }

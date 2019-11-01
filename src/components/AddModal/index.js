@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SimpleModal() {
+export default function SimpleModal({ reloadData }) {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(false);
@@ -61,8 +61,15 @@ export default function SimpleModal() {
         description,
         tags: tags.split(' '),
       });
+
       handleClose();
-      window.location.reload();
+
+      setTitle('');
+      setLink('');
+      setDescription('');
+      setTags('');
+
+      reloadData();
     } catch (err) {
       console.log('Something went Wrong');
     } finally {

@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SimpleModal({ id, tools, title }) {
+export default function SimpleModal({ id, tools, title, reloadData }) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
@@ -52,7 +52,7 @@ export default function SimpleModal({ id, tools, title }) {
       await api.delete(`/tools/${id}`);
       handleClose();
 
-      window.location.reload();
+      reloadData();
     } catch (err) {
       console.log('Something went Wrong');
     } finally {

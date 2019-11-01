@@ -12,6 +12,7 @@
 import React from 'react';
 
 import { FaSearch } from 'react-icons/fa';
+import { DebounceInput } from 'react-debounce-input';
 import SimpleModal from '../AddModal';
 import { Container, Form, InputContainer } from './styles';
 
@@ -22,13 +23,14 @@ export default function HeaderInput({
   onChange,
   value,
   onClick,
+  reloadData,
 }) {
   return (
     <Container>
-      <Form onSubmit={onSubmit} err={err}>
+      <Form onSubmit={e => e.preventDefault()} err={err}>
         <Inputs checked={checked} onChange={onChange} value={value} />
       </Form>
-      <SimpleModal />
+      <SimpleModal reloadData={reloadData} />
     </Container>
   );
 }
@@ -38,11 +40,12 @@ function Inputs({ value, onChange, checked }) {
     <InputContainer>
       <label className="searchContainer">
         <FaSearch />
-        <input
+        <DebounceInput
           type="text"
           name="searchTool"
           placeholder="search"
           value={value}
+          debounceTimeout={300}
           onChange={onChange}
         />
       </label>
