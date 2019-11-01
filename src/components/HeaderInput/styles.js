@@ -19,6 +19,16 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   justify-content: space-between;
+  padding-right: 10px;
+
+  @media screen and (max-width: 610px) {
+    padding-right: 0px;
+    padding-bottom: 10px;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 export const Container = styled.div`
@@ -27,6 +37,17 @@ export const Container = styled.div`
   height: 100%;
   justify-content: space-between;
   align-items: center;
+  min-width: 300px;
+
+  @media screen and (max-width: 610px) {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    & > div {
+      width: 100%;
+    }
+  }
 `;
 
 export const AddButton = styled.button.attrs({
@@ -49,6 +70,10 @@ export const AddButton = styled.button.attrs({
 
   &:hover {
     opacity: 0.7;
+  }
+
+  @media screen and (max-width: 610px) {
+    width: 100%;
   }
 `;
 
@@ -111,6 +136,8 @@ export const InputContainer = styled.div`
   }
 
   .checkContainer span.checkmark {
+    min-width: 20px;
+    min-height: 20px;
     height: 20px;
     width: 20px;
     background-color: #eee;
@@ -123,5 +150,29 @@ export const InputContainer = styled.div`
 
   .checkContainer input:checked ~ .checkmark {
     background-color: #365df0;
+  }
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+
+    .searchContainer {
+      margin-bottom: 5px;
+      width: 100%;
+
+      input {
+        width: 100%;
+      }
+    }
+
+    .checkContainer {
+      margin-left: 0;
+
+      .checkmark {
+        margin-left: 0;
+      }
+    }
   }
 `;

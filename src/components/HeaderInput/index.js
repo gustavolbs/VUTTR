@@ -17,20 +17,18 @@ import SimpleModal from '../AddModal';
 import { Container, Form, InputContainer } from './styles';
 
 export default function HeaderInput({
-  onSubmit,
-  err,
+  inputErros,
   checked,
   onChange,
   value,
-  onClick,
   reloadData,
 }) {
   return (
     <Container>
-      <Form onSubmit={e => e.preventDefault()} err={err}>
+      <Form onSubmit={e => e.preventDefault()}>
         <Inputs checked={checked} onChange={onChange} value={value} />
       </Form>
-      <SimpleModal reloadData={reloadData} />
+      <SimpleModal inputErros={inputErros} reloadData={reloadData} />
     </Container>
   );
 }

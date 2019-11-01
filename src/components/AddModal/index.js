@@ -6,7 +6,7 @@
  *  - Material Ui para o Modal
  *  - React Icons para os ícones
  */
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { FaPlus } from 'react-icons/fa';
@@ -25,7 +25,9 @@ function getModalStyle() {
 const useStyles = makeStyles(theme => ({
   paper: {
     position: 'absolute',
-    width: 600,
+    maxWidth: 600,
+    width: '80vw',
+    minWidth: 330,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     borderRadius: 5,
@@ -43,6 +45,12 @@ export default function SimpleModal({ reloadData }) {
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState('');
 
+  const [inputErroName, setInputErroName] = useState('');
+  const [inputErroLink, setInputErroLink] = useState('');
+  const [inputErroTags, setInputErroTags] = useState('');
+  const [inputErroDescription, setInputErroDescription] = useState('');
+  const [errorsFound, setErrorsFound] = useState(1);
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -51,29 +59,92 @@ export default function SimpleModal({ reloadData }) {
     setOpen(false);
   };
 
+  const cleanFields = () => {
+    setTitle('');
+    setLink('');
+    setDescription('');
+    setTags('');
+    setInputErroName('');
+    setInputErroLink('');
+    setInputErroTags('');
+    setInputErroDescription('');
+    setErrorsFound(0);
+  };
+
+  const verifyFields = () => {
+    if (title.length === 0) {
+      setInputErroName("Field Name can't be empty");
+      setErrorsFound(errorsFound + 1);
+    } else {
+      setInputErroName('');
+    }
+    if (link.length === 0) {
+      setInputErroLink("Field Link can't be empty");
+      setErrorsFound(errorsFound + 1);
+    } else {
+      setInputErroLink('');
+    }
+    if (description.length === 0) {
+      setInputErroDescription("Field Description can't be empty");
+      setErrorsFound(errorsFound + 1);
+    } else {
+      setInputErroDescription('');
+    }
+    if (tags.length === 0) {
+      setInputErroTags("Field Tags can't be empty");
+      setErrorsFound(errorsFound + 1);
+    } else {
+      setInputErroTags('');
+    }
+  };
+
+  const verifyErrorsFound = () => {
+    if (
+      inputErroName === 0 &&
+      inputErroLink === 0 &&
+      inputErroDescription === 0 &&
+      inputErroTags === 0
+    ) {
+      setErrorsFound(0);
+      console.log(errorsFound);
+    }
+  };
+
+  useEffect(() => {
+    verifyErrorsFound();
+    // verifyFields();
+  }, [errorsFound]);
+
   const handleAdd = async e => {
     e.preventDefault();
 
-    try {
-      await api.post(`/tools`, {
-        title,
-        link,
-        description,
-        tags: tags.split(' '),
-      });
+    verifyFields();
+    // console.log(errorsFound);
 
-      handleClose();
+    if (errorsFound === 0) {
+      try {
+        await api.post(`/tools`, {
+          title,
+          link,
+          description,
+          tags: tags.split(' '),
+        });
 
-      setTitle('');
-      setLink('');
-      setDescription('');
-      setTags('');
+        handleClose();
 
-      reloadData();
-    } catch (err) {
-      console.log('Something went Wrong');
-    } finally {
-      console.log('OK');
+        cleanFields();
+
+        reloadData();
+      } catch (err) {
+        console.log('Something went Wrong');
+      } finally {
+        console.log('OK');
+      }
+      // console.log('TOP');
+      // console.log(errorsFound);
+    } else {
+      // console.log('DEU AGUIA');
+      // console.log(errorsFound);
     }
   };
 
@@ -102,10 +173,11 @@ export default function SimpleModal({ reloadData }) {
               type="text"
               name="title"
               value={title}
-              placeholder="Enter with title"
+              placeholder="Enter with tool name"
               required
               onChange={e => setTitle(`${e.target.value}`)}
             />
+            {inputErroName && <div className="modalError">{inputErroName}</div>}
           </label>
 
           <label>
@@ -120,6 +192,7 @@ export default function SimpleModal({ reloadData }) {
               required
               onChange={e => setLink(`${e.target.value}`)}
             />
+            {inputErroLink && <div className="modalError">{inputErroLink}</div>}
           </label>
 
           <label>
@@ -134,6 +207,9 @@ export default function SimpleModal({ reloadData }) {
               required
               onChange={e => setDescription(`${e.target.value}`)}
             />
+            {inputErroDescription && (
+              <div className="modalError">{inputErroDescription}</div>
+            )}
           </label>
 
           <label>
@@ -148,11 +224,14 @@ export default function SimpleModal({ reloadData }) {
               required
               onChange={e => setTags(`${e.target.value}`)}
             />
+            {inputErroTags && <div className="modalError">{inputErroTags}</div>}
           </label>
 
           <div id="buttonContainer">
-            <button onClick={handleClose}>Cancel</button>
-            <button type="submit" id="addButton" onClick={handleAdd}>
+            <button type="button" onClick={handleClose}>
+              Cancel
+            </button>
+            <button type="button" id="addButton" onClick={handleAdd}>
               Add tool
             </button>
           </div>

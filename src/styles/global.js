@@ -37,17 +37,36 @@ export default createGlobalStyle`
     outline: none;
   }
 
-  h1, h2 {
-    padding: 12px 0;
-  }
-
   h1 {
-    font-size: 42px;
+    font-size: 2.625rem;
     line-height: 50px;
+    font-weight: 500;
+    padding-bottom: 1rem;
   }
 
   h2 {
-    font-size: 36px;
+    font-size: 1.625rem;
     line-height: 40px;
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 490px) {
+    header h1 {
+      font-size: 2.425rem;
+    }
+
+    header h2 {
+      font-size: 1.425rem;
+    }
+  }
+
+  @media screen and (max-width: 436px) {
+    header h1 {
+      font-size: 2.225rem;
+    }
+
+    header h2 {
+      font-size: 1.225rem;
+    }
   }
 `;
